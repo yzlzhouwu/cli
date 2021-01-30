@@ -2,6 +2,11 @@
   "name": "zhijiao_cli",
   "version": "1.0.3",
   "description": "渔之蓝前端项目脚手架",
+  "keywords": [
+    "cli",
+    "zhijiao_cli",
+    "zhijiao"
+  ],
   "bin": {
     "zhijiao": "./bin/zhijiao"
   },
