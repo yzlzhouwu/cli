@@ -3,7 +3,7 @@
   "version": "1.0.2",
   "description": "渔之蓝前端项目脚手架",
   "bin": {
-    "zhijiao_cli": "./bin/zhijiao"
+    "zhijiao": "./bin/zhijiao"
   },
   "main": "./bin/zhijiao",
   "repository": {
