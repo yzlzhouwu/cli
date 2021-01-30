@@ -1,0 +1,68 @@
+#!/usr/bin/env node -harmony
+
+'use strict'
+// 定义脚手架的文件路径， __dirname是当前文件所在路径
+process.env.NODE_PATH = __dirname + '/../node_modules/'
+
+const program = require('commander')
+
+const { chalk } = require('@vue/cli-shared-utils')
+
+// 获取package.json中的version来作为项目版本
+program.version(require('../package.json').version)
+// 定义脚手架的用法，在program.hple()中会显示
+program.usage('<command> [options]')
+
+/*
+command为执行的命令
+description为命令的描述
+alias为简写
+action为命令相应的操作
+*/
+program
+    .command('init <app-name>')
+    .description('创建一个由渔之蓝的新项目', {
+        'app-name': `项目名称。${chalk.red('.')} 表示当前文件夹下创建项目`
+    })
+    .action((name, cmd) => {
+        require('../lib/init')(name, cmd)
+    })
+
+
+
+// 指令报错时显示
+const enhanceErrorMessages = require('../lib/utils/enhanceErrorMessages')
+enhanceErrorMessages('missingArgument', argName => {
+    return `Missing required argument ${chalk.yellow(`<${argName}>`)}.`
+})
+enhanceErrorMessages('unknownOption', optionName => {
+    return `Unknown option ${chalk.yellow(optionName)}.`
+})
+enhanceErrorMessages('optionMissingArgument', (option, flag) => {
+    return `Missing required argument for option ${chalk.yellow(option.flags)}` + (
+        flag ? `, got ${chalk.yellow(flag)}` : ``
+    )
+})
+
+// program.parse(arguments)会处理参数，没有被使用的选项会被存放在program.args数组中
+program.parse(process.argv)
+
+function camelize(str) {
+    return str.replace(/-(\w)/g, (_, c) => c ? c.toUpperCase() : '')
+}
+
+// commander将Command对象本身作为选项传递，
+// 只将实际的选项提取到一个新对象中。
+function cleanArgs(cmd) {
+    console.log('cleanArgs', cmd);
+    const args = {}
+    cmd.options.forEach(o => {
+        const key = camelize(o.long.replace(/^--/, ''))
+        // 如果没有选项，而Command有一个同名的方法
+        // 它不应该被复制
+        if (typeof cmd[key] !== 'function' && typeof cmd[key] !== 'undefined') {
+            args[key] = cmd[key]
+        }
+    })
+    return args
+}

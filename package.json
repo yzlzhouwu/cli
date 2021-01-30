@@ -1,0 +1,19 @@
+{
+  "name": "zhijiao_cli",
+  "version": "1.0.1",
+  "description": "渔之蓝前端项目脚手架",
+  "bin": "./bin/zhijiao",
+  "main": "./bin/zhijiao",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "jyzhang",
+  "license": "ISC",
+  "dependencies": {
+    "@vue/cli-shared-utils": "^4.5.11",
+    "child_process": "^1.0.2",
+    "commander": "^7.0.0",
+    "fs-extra": "^9.1.0",
+    "inquirer": "^7.3.3"
+  }
+}
