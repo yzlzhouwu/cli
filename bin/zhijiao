@@ -20,12 +20,12 @@ alias为简写
 action为命令相应的操作
 */
 program
-    .command('init <app-name>')
+    .command('create <app-name>')
     .description('创建一个由渔之蓝的新项目', {
         'app-name': `项目名称。${chalk.red('.')} 表示当前文件夹下创建项目`
     })
     .action((name, cmd) => {
-        require('../lib/init')(name, cmd)
+        require('../lib/create')(name, cmd)
     })
 
 

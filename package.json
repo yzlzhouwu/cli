@@ -8,7 +8,7 @@
     "zhijiao"
   ],
   "bin": {
-    "zhijiao": "./bin/zhijiao"
+    "zhijiao_cli": "./bin/zhijiao"
   },
   "main": "./bin/zhijiao",
   "repository": {
