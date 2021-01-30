@@ -2,8 +2,14 @@
   "name": "zhijiao_cli",
   "version": "1.0.1",
   "description": "渔之蓝前端项目脚手架",
-  "bin": "./bin/zhijiao",
+  "bin": {
+    "zhijiao_cli": "./bin/zhijiao"
+  },
   "main": "./bin/zhijiao",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zjy-github/zhijiao_cli.git"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
