@@ -12,11 +12,11 @@ zhijiao create <project-name>
 该项目提供两个项目框架使用：
 intact 完整框架项目
 ##### 登录页
-![avatar]('./static/login.png')
+![avatar](./static/login.png)
 ##### 主页面
-![avatar]('./static/mian.png')
+![avatar](./static/mian.png)
 
 inline 内嵌框架项目
 ##### 主页面
-![avatar]('./static/mian-inline.png')
+![avatar](./static/mian-inline.png)
 
